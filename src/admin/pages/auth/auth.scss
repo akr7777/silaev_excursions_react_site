@@ -1,0 +1,15 @@
+.auth-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 50px;
+
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+}
