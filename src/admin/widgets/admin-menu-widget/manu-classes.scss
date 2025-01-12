@@ -4,5 +4,14 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
-    background-color: violet;
+    // background-color: violet;
+
+    font-size: 20px;
+}
+
+.navlink-class {
+    color: black;
+}
+.navlink-class.active {
+    color: red;
 }
