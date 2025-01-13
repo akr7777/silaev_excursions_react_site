@@ -7,6 +7,8 @@ import { useNavigate } from "react-router"
 import { PATHS } from "../../../router/router"
 
 import "./admin-news.scss"
+import { CustomButton } from "../../../components/my-button/my-button"
+import { CREATE_NEW_ENTETY } from "../../../shared/consts"
 
 export const AdminNews = () => {
     const navigate = useNavigate()
@@ -15,10 +17,13 @@ export const AdminNews = () => {
     const isNewsLoading: boolean = useAppSelector(state => state.newsSlice.isNewsLoading)
 
     const onNewClick = (id: string) => navigate(PATHS.admin.news + id)
+    const onCreateNewClick = () => navigate(PATHS.admin.news + CREATE_NEW_ENTETY)
 
     return (
         <div className="admin-news-wrapper">
             <h3>Новости</h3>
+
+            <CustomButton title={"Создать новость"} onPress={onCreateNewClick} class="admin-create-btn" />
 
             {isNewsLoading ? <Preloader /> : (
                 <>

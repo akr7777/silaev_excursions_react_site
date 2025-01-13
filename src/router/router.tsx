@@ -11,7 +11,7 @@ export const PATHS = {
   rootPath: '/',
   auth: '/auth/',
   admin: {
-    root: '/admin/',
+    root: '/admin',
     events: '/admin/events/',
     news: '/admin/news/',
   }

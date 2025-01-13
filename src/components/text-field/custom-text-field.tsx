@@ -5,7 +5,7 @@ import { ChangeEvent } from "react"
 type PropsType = {
     value: string,
     onChange: (newValue: string) => void,
-    additionalClass?: boolean
+    additionalClass?: string
     placeholder?: string
     isSecretText?: boolean
 }

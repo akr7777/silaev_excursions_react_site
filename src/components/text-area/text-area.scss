@@ -1,12 +1,11 @@
 @use "../../assets/styles/common.scss" as *;
 
-.custom-text-field {
+.custom-text-area {
     background-color: $text-field-bg-color;
     padding: 5px 10px;
-    height: 30px;
+    // height: 30px;
     width: 100%;
     box-sizing: border-box;
-    // text-align: center;
     border-radius: 10px;
     color: black;
     font-size: 16px;

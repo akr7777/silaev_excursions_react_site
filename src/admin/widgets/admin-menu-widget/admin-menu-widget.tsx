@@ -23,6 +23,13 @@ export const AdminMenuWidget = () => {
                 Мероприятия
             </NavLink>
 
+            <NavLink 
+                to={PATHS.rootPath}
+                className={"navlink-class"}
+            >
+                Вернуться на сайт
+            </NavLink>
+
         </div>
     )
 }
