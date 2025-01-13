@@ -6,6 +6,8 @@ import { MainAdminPage } from "../admin/pages/main-admin-page/main-admin-page";
 import { PrivateRoute } from "./private-router";
 import { AdminNews } from "../admin/pages/news/admin-news";
 import { AdminSeparateNew } from "../admin/pages/news/separate-new/saparate-new";
+import { AdminSeparateEvent } from "../admin/pages/events/separate-event/saparate-event";
+import { AdminEvents } from "../admin/pages/events/admin-events";
 
 export const PATHS = {
   rootPath: '/',
@@ -41,6 +43,9 @@ export const AppRouter = () => {
           </Route> */}
           <Route path={PATHS.admin.news} element={<AdminNews />} />
           <Route path={PATHS.admin.news + ":newId"} element={<AdminSeparateNew />} />
+
+          <Route path={PATHS.admin.events} element={<AdminEvents />} />
+          <Route path={PATHS.admin.events + ":eventId"} element={<AdminSeparateEvent />} />
 
         </Route>
 
