@@ -1,7 +1,7 @@
 import { v4 } from "uuid"
 import { Preloader } from "../../../shared/preloader/preloader"
 import { OneNewType } from "../../../store/features/newSlice/types/news-types"
-import { useAppSelector } from "../../../store/store"
+import { useAppDispatch, useAppSelector } from "../../../store/store"
 import { OneAdminNewList } from "./one-new-card/one-admin-new-card"
 import { useNavigate } from "react-router"
 import { PATHS } from "../../../router/router"
@@ -9,9 +9,16 @@ import { PATHS } from "../../../router/router"
 import "./admin-news.scss"
 import { CustomButton } from "../../../components/my-button/my-button"
 import { CREATE_NEW_ENTETY } from "../../../shared/consts"
+import { useEffect } from "react"
+import { newsSliceThunks } from "../../../store/features/newSlice/model/news-thunks"
 
 export const AdminNews = () => {
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(newsSliceThunks.getAll())
+    }, [])
 
     const news: Array<OneNewType> = useAppSelector(state => state.newsSlice.news)
     const isNewsLoading: boolean = useAppSelector(state => state.newsSlice.isNewsLoading)

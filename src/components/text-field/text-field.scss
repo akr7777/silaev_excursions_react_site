@@ -3,7 +3,7 @@
 .custom-text-field {
     background-color: $text-field-bg-color;
     padding: 5px 10px;
-    height: 30px;
+    height: 35px;
     width: 100%;
     box-sizing: border-box;
     // text-align: center;
@@ -11,4 +11,5 @@
     color: black;
     font-size: 16px;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    outline: none;
 }

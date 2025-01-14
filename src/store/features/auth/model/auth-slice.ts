@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { AuthInitContentType, authInitialContent, UserType } from "../types/auth-types"
+import { AuthInitContentType, authInitialContent, AdminType } from "../types/auth-types"
 
 const authSlice = createSlice({
     name: 'auth-slice',
@@ -8,7 +8,7 @@ const authSlice = createSlice({
       setLoading: (state: AuthInitContentType, action: PayloadAction<boolean>) => {
         state.isLoading = action.payload
       },
-      setUser: (state: AuthInitContentType, action: PayloadAction<UserType>) => {
+      setUser: (state: AuthInitContentType, action: PayloadAction<AdminType>) => {
           state.user = {...action.payload}
       },
     },

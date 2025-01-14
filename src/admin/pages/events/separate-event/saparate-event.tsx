@@ -17,7 +17,7 @@ export const AdminSeparateEvent = () => {
 
     const [title, setTitle] = useState<string>(currentEvent?.title || "")
     const [descr, setDescr] = useState<string>(currentEvent?.description || "")
-    const [addInfo, setAddInfo] = useState<string>(currentEvent?.additional_info || "")
+    const [addInfo, setAddInfo] = useState<string>(currentEvent?.additionalInfo || "")
     const [link, setLink] = useState<string>(currentEvent?.link || "")
 
     const initialImage: string = currentEvent?.photo || ""
@@ -37,14 +37,15 @@ export const AdminSeparateEvent = () => {
       }, [initialImage]);
 
 
-    const onPostNewBtnClick = () => {
+    const onPostEventBtnClick = () => {
         console.log('file=', file);
         
     }
+    const onDeleteEventClick = () => {}
 
     return (
         <div className="admin-separate-event-wrapper">
-            <h3>Редактирование новости:</h3>
+            <h3>Редактирование мероприятия:</h3>
 
             <div>
                 <div>Заголовок:</div>
@@ -77,7 +78,10 @@ export const AdminSeparateEvent = () => {
 
             </div>
 
-            <CustomButton title="Отправить" onPress={onPostNewBtnClick} />
+            <CustomButton title="Отправить" onPress={onPostEventBtnClick} />
+
+
+            <CustomButton title="Удалить мероприятие" onPress={onDeleteEventClick} />
         </div>
     )
 }

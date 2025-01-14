@@ -1,21 +1,24 @@
-export type OneNewType = {
+export interface OneNewType {
     id: string,
     date: string,
     title: string,
     description: string,
-    additional_info: string,
-    link: string,
-    photo: string
+    additionalInfo?: string,
+    link?: string,
+    photo?: string
 }
+
 
 export type NewsSliceType = {
     news: Array<OneNewType>,
+    currentNew: OneNewType | null,
     isNewsLoading: boolean
 }
 
 
 export const newsInitContent: NewsSliceType = {
     isNewsLoading: false,
+    currentNew: null,
     news: [
         // {
         //     id: "111",

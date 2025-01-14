@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios'
-import { LOCAL_STORAGE_ACCESS_TOKEN, LOCAL_STORAGE_REFRESH_TOKEN } from '../consts'
+import { LOCAL_STORAGE_ACCESS_TOKEN } from '../consts'
 import { PATHS } from '../../router/router'
 
 export const instance = axios.create({
@@ -56,7 +56,7 @@ instance.interceptors.response.use(
       } catch (error) {
         return Promise.reject(error)
       }
-    } else if (error.response?.status === 503) {
+    } else if (error.response?.status === 400) {
       window.location.href = PATHS.auth
     }
     // store.dispatch(appActions.setLoading(false))

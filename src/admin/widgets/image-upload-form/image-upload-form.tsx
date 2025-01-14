@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import "./image-upload.scss";
 
 type UploadProps = {
-    // onUpload: (formData: FormData) => void;
     file: File | null,
     setFile: (file: File | null) => void
     initialPreview?: string; // URL или base64 изображение
 };
 
 export const UploadComponent2: React.FC<UploadProps> = ({ file, setFile, initialPreview }) => {
-//   const [file, setFile] = useState<File | null>(null);
+
   const [preview, setPreview] = useState<string | null>(initialPreview || null);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setPreview(initialPreview || null)
+  }, [initialPreview])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -37,18 +40,6 @@ export const UploadComponent2: React.FC<UploadProps> = ({ file, setFile, initial
     };
   }, [preview, initialPreview]);
 
-//   const handleUploadClick = () => {
-//     if (!file) {
-//       setError("Выберите файл перед загрузкой.");
-//       return;
-//     }
-
-//     const formData = new FormData();
-//     formData.append("photo", file);
-
-//     onUpload(formData);
-//   };
-
   return (
     <div className="upload-container">
       <div className="file-input-wrapper" onClick={() => document.getElementById("fileInput")?.click()}>
@@ -68,11 +59,8 @@ export const UploadComponent2: React.FC<UploadProps> = ({ file, setFile, initial
         />
       </div>
       {error && <p className="upload-error-text">{error}</p>}
-      {/* <button onClick={handleUploadClick} className="upload-button" disabled={!file && !initialPreview}>
-        Загрузить
-      </button> */}
+     
     </div>
   );
 };
 
-// export default UploadComponent;

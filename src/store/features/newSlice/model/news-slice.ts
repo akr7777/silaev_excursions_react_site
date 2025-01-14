@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { newsInitContent, NewsSliceType } from "../types/news-types"
+import { newsInitContent, NewsSliceType, OneNewType } from "../types/news-types"
+import { newsSliceThunks } from "./news-thunks"
+import { GetOneNewThunkResType } from "../types/news-thunk-types"
 
 const newsSlice = createSlice({
     name: 'news-slice',
@@ -8,8 +10,28 @@ const newsSlice = createSlice({
       setLoading: (state: NewsSliceType, action: PayloadAction<boolean>) => {
         state.isNewsLoading = action.payload
       },
-      
+       setCurrentNew: (state: NewsSliceType, action: PayloadAction<OneNewType | null>) => {
+        state.currentNew = action.payload
+       },
     },
+    extraReducers: builder => (
+
+      builder.addCase(newsSliceThunks.getAll.fulfilled, (state: NewsSliceType, action: PayloadAction<GetOneNewThunkResType[]>) => {
+        if (action.payload && action.payload.length > 0) {
+          state.news = [...action.payload].map(el => {
+            return {...el, photo: el.nPreviewPhoto}
+          })
+        }
+        
+      }),
+
+      builder.addCase(newsSliceThunks.getById.fulfilled, (state: NewsSliceType, action: PayloadAction<GetOneNewThunkResType>) => {
+        if (action.payload) {
+          state.currentNew = {...action.payload, photo: action.payload.nPreviewPhoto }
+        }
+      })
+
+    )
     
   })
 

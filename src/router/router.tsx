@@ -8,6 +8,7 @@ import { AdminNews } from "../admin/pages/news/admin-news";
 import { AdminSeparateNew } from "../admin/pages/news/separate-new/saparate-new";
 import { AdminSeparateEvent } from "../admin/pages/events/separate-event/saparate-event";
 import { AdminEvents } from "../admin/pages/events/admin-events";
+import { projectInitialization } from "../shared/init-function/project-initialization";
 
 export const PATHS = {
   rootPath: '/',
@@ -22,6 +23,7 @@ export const PATHS = {
 export const AppRouter = () => {
 
     // init project
+    projectInitialization()
 
     return (
       <Routes>

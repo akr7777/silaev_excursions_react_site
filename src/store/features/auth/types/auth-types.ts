@@ -3,16 +3,16 @@ export type AuthCredentialsType = {
     password: string,
 }
 
-export type UserType = {
+export type AdminType = {
     login: string | null
 }
 
 export type AuthInitContentType = {
-    user: UserType,
+    user: AdminType,
     isLoading: boolean,
 }
 
 export const authInitialContent: AuthInitContentType = {
-    user: { login: "user__name" },
+    user: { login: null },
     isLoading: false,
 }
