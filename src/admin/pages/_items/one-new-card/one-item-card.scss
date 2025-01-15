@@ -1,4 +1,4 @@
-.one-admin-new-list-container {
+.one-item-container {
     width: 100%;
     box-sizing: border-box;
     background-color: rgb(195, 194, 194);
@@ -25,6 +25,6 @@
         grid-template-columns: 250px 100px 1fr 1.5fr;
     }
 }
-.one-admin-new-list-container:hover {
+.one-item-container:hover {
     background-color: grey;
 }

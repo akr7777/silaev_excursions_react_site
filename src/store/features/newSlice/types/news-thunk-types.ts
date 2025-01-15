@@ -11,11 +11,3 @@ export type UploadPhotoThunk = {
     id: string,
     formData: FormData,
 }
-
-// {
-//     date: string,
-//     title: string,
-//     description: string,
-//     additionalInfo?: string,
-//     link?: string
-// }

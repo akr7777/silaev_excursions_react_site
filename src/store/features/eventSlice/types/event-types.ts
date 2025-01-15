@@ -3,7 +3,7 @@ export type OneEventType = {
     date: string,
     title: string,
     description: string,
-    additional_info: string,
+    additionalInfo: string,
     link: string,
     photo: string
 }

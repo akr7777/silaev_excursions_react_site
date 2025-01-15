@@ -10,17 +10,22 @@ const newsSlice = createSlice({
       setLoading: (state: NewsSliceType, action: PayloadAction<boolean>) => {
         state.isNewsLoading = action.payload
       },
-       setCurrentNew: (state: NewsSliceType, action: PayloadAction<OneNewType | null>) => {
+      isOneNewLoading: (state: NewsSliceType, action: PayloadAction<boolean>) => {
+        state.isOneNewLoading = action.payload
+      },
+      setCurrentNew: (state: NewsSliceType, action: PayloadAction<OneNewType | null>) => {
         state.currentNew = action.payload
-       },
+      },
     },
     extraReducers: builder => (
 
       builder.addCase(newsSliceThunks.getAll.fulfilled, (state: NewsSliceType, action: PayloadAction<GetOneNewThunkResType[]>) => {
         if (action.payload && action.payload.length > 0) {
-          state.news = [...action.payload].map(el => {
-            return {...el, photo: el.nPreviewPhoto}
-          })
+          state.news = [...action.payload]
+            .sort((a,b) => a.date < b.date ? 1 : -1)
+            .map(el => {
+              return {...el, photo: el.nPreviewPhoto}
+            })
         }
         
       }),

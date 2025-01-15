@@ -3,6 +3,7 @@ import { apiErrorMessage } from "../../../../shared/api/error-message"
 import { newsSliceActions } from "./news-slice"
 import { newsAPI } from "../api/news-api"
 import { AddNewThunkReqType, UpdateNewThunkReqType, UploadPhotoThunk } from "../types/news-thunk-types"
+import { toast } from "react-toastify"
 
 export const newsSliceThunks = {
   getAll: createAsyncThunk('news/getAll', async (_, {dispatch}) => {
@@ -24,15 +25,15 @@ export const newsSliceThunks = {
 
   getById: createAsyncThunk('news/getById', async ({newId}: {newId: string}, {dispatch}) => {
     try {
-      dispatch(newsSliceActions.setLoading(true))
+      dispatch(newsSliceActions.isOneNewLoading(true))
       const res = await newsAPI.getById(newId)
 
-      dispatch(newsSliceActions.setLoading(false))
+      dispatch(newsSliceActions.isOneNewLoading(false))
 
       return res.data
       
     } catch (err: any) {
-      dispatch(newsSliceActions.setLoading(false))
+      dispatch(newsSliceActions.isOneNewLoading(false))
       const status: number = err.response.status
       const message: string = err.response.data.message
       apiErrorMessage({ status, message })
@@ -53,7 +54,10 @@ export const newsSliceThunks = {
         dispatch(newsSliceThunks.uploadPhoto({id: res.data.id, formData: formData}))
       }
       
-      dispatch(newsSliceThunks.getAll())
+      if (res.data.id) {
+        toast.info("Новость успешно добавлена")
+        // dispatch(newsSliceThunks.getAll())
+      }
 
     } catch (err: any) {
       dispatch(newsSliceActions.setLoading(false))
@@ -76,7 +80,10 @@ export const newsSliceThunks = {
         dispatch(newsSliceThunks.uploadPhoto({id: res.data.id, formData: formData}))
       }
       
-      dispatch(newsSliceThunks.getAll())
+      if (res.data.id) {
+        toast.info("Новость успешно отредактирована")
+        // dispatch(newsSliceThunks.getAll())
+      }
 
     } catch (err: any) {
       dispatch(newsSliceActions.setLoading(false))
@@ -92,8 +99,12 @@ export const newsSliceThunks = {
       const res = await newsAPI.deleteNew(newId)
 
       dispatch(newsSliceActions.setLoading(false))
+
+      if (res.status === 200) {
+        toast.info("Новость успешно удалена")
+        // dispatch(newsSliceThunks.getAll())
+      }
       
-      dispatch(newsSliceThunks.getAll())
 
     } catch (err: any) {
       dispatch(newsSliceActions.setLoading(false))
@@ -109,6 +120,11 @@ export const newsSliceThunks = {
       const res = await newsAPI.uploadPhoto(data)
 
       dispatch(newsSliceActions.setLoading(false))
+
+      if (res.status === 201) {
+        toast.info("Фото добавлено")
+        dispatch(newsSliceThunks.getAll())
+      }
       
     } catch (err: any) {
       dispatch(newsSliceActions.setLoading(false))
