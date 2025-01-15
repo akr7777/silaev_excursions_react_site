@@ -5,9 +5,9 @@ import { useNavigate } from "react-router"
 import { CustomButton } from "../../../components/my-button/my-button"
 import { CREATE_NEW_ENTETY } from "../../../shared/consts"
 import { OneEventType } from "../../../store/features/eventSlice/types/event-types"
+import { OneItemCard } from "./one-new-card/one-item-card"
 
 import "./items.scss"
-import { OneItemCard } from "./one-new-card/one-item-card"
 
 type ItemsPropsType = {
     title: string,

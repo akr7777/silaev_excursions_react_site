@@ -5,10 +5,10 @@ import { NotFoundPage } from "../pages/not-found-page/not-found";
 import { MainAdminPage } from "../admin/pages/main-admin-page/main-admin-page";
 import { PrivateRoute } from "./private-router";
 import { AdminNewsPage } from "../admin/pages/news/admin-news-page";
-import { AdminSeparateEvent } from "../admin/pages/events/separate-event/saparate-event";
-import { AdminEvents } from "../admin/pages/events/admin-events";
 import { projectInitialization } from "../shared/init-function/project-initialization";
 import { SeparateNewPage } from "../admin/pages/news/separate-new-page";
+import { SeparateEventPage } from "../admin/pages/events/separate-event-page";
+import { AdminEventsPage } from "../admin/pages/events/admin-event-page";
 
 export const PATHS = {
   rootPath: '/',
@@ -46,8 +46,8 @@ export const AppRouter = () => {
           <Route path={PATHS.admin.news} element={<AdminNewsPage />} />
           <Route path={PATHS.admin.news + ":newId"} element={<SeparateNewPage />} />
 
-          <Route path={PATHS.admin.events} element={<AdminEvents />} />
-          <Route path={PATHS.admin.events + ":eventId"} element={<AdminSeparateEvent />} />
+          <Route path={PATHS.admin.events} element={<AdminEventsPage />} />
+          <Route path={PATHS.admin.events + ":eventId"} element={<SeparateEventPage />} />
 
         </Route>
 
