@@ -101,7 +101,7 @@ export const gidSliceThunks = {
       dispatch(gidSliceActions.setIsOneGidLoading(false))
       
       if (res.status === 200) {
-        toast.info("Новость успешно удалена")
+        toast.info("Экскурсовод успешно удален")
         dispatch(gidSliceThunks.getAll())
       }
       
