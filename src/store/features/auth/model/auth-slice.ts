@@ -8,7 +8,7 @@ const authSlice = createSlice({
       setLoading: (state: AuthInitContentType, action: PayloadAction<boolean>) => {
         state.isLoading = action.payload
       },
-      setUser: (state: AuthInitContentType, action: PayloadAction<AdminType>) => {
+      setAdmin: (state: AuthInitContentType, action: PayloadAction<AdminType>) => {
           state.user = {...action.payload}
       },
     },

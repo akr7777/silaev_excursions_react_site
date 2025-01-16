@@ -1,11 +1,11 @@
 import { authSliceActions } from "../../store/features/auth/model/auth-slice"
-import { UserType } from "../../store/features/auth/types/auth-types"
+import { AdminType } from "../../store/features/auth/types/auth-types"
 import { store } from "../../store/store"
 import { LOCAL_STORAGE_ACCESS_TOKEN } from "../consts"
 
-export const recieveUserFromToken = (accessToken: string): UserType => {
+export const recieveUserFromToken = (accessToken: string): AdminType => {
     const decodedTokenPart = JSON.parse(atob(accessToken.split('.')[1]))
-    const data: UserType = {
+    const data: AdminType = {
         login: decodedTokenPart.login,
     }
     return data
@@ -18,8 +18,8 @@ export const projectInitialization = () => {
     const accessToken: string | null = localStorage.getItem(LOCAL_STORAGE_ACCESS_TOKEN)
 
     if (accessToken) {
-        const data: UserType = recieveUserFromToken(accessToken)
-        store.dispatch(authSliceActions.setUser(data))
+        const data: AdminType = recieveUserFromToken(accessToken)
+        store.dispatch(authSliceActions.setAdmin(data))
     }
 
     // Инициализация проекта завершена

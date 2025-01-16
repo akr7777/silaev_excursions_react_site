@@ -9,6 +9,8 @@ import { projectInitialization } from "../shared/init-function/project-initializ
 import { SeparateNewPage } from "../admin/pages/news/separate-new-page";
 import { SeparateEventPage } from "../admin/pages/events/separate-event-page";
 import { AdminEventsPage } from "../admin/pages/events/admin-event-page";
+import { GidsPage } from "../admin/pages/gids/all-gids";
+import { SeparateGidPage } from "../admin/pages/gids/separate-gid/saparate-gid";
 
 export const PATHS = {
   rootPath: '/',
@@ -17,6 +19,7 @@ export const PATHS = {
     root: '/admin',
     events: '/admin/events/',
     news: '/admin/news/',
+    gids: '/admin/gids/',
   }
 }
 
@@ -48,6 +51,9 @@ export const AppRouter = () => {
 
           <Route path={PATHS.admin.events} element={<AdminEventsPage />} />
           <Route path={PATHS.admin.events + ":eventId"} element={<SeparateEventPage />} />
+
+          <Route path={PATHS.admin.gids} element={<GidsPage />} />
+          <Route path={PATHS.admin.gids + ":gidId"} element={<SeparateGidPage />} />
 
         </Route>
 

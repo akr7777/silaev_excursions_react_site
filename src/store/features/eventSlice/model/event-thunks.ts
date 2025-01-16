@@ -55,7 +55,7 @@ export const eventsSliceThunks = {
       }
       
       if (res.data.id) {
-        toast.info("Новость успешно добавлена")
+        toast.info("Мероприятие успешно добавлено")
         // dispatch(newsSliceThunks.getAll())
       }
 
@@ -81,7 +81,7 @@ export const eventsSliceThunks = {
       }
       
       if (res.data.id) {
-        toast.info("Новость успешно отредактирована")
+        toast.info("Мероприятие успешно отредактировано")
         // dispatch(newsSliceThunks.getAll())
       }
 
@@ -102,7 +102,7 @@ export const eventsSliceThunks = {
       dispatch(eventSliceActions.setAllEventsLoading(false))
       
       if (res.status === 200) {
-        toast.info("Новость успешно удалена")
+        toast.info("Мероприятие успешно удалено")
         // dispatch(newsSliceThunks.getAll())
       }
       

@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { authSliceReducer } from './features/auth/model/auth-slice'
 import { newsSliceReducer } from './features/newSlice/model/news-slice'
 import { eventSliceReducer } from './features/eventSlice/model/event-slice'
+import { gidSliceReducer } from './features/gidSlice/model/gid-slice'
 
 
 export const store = configureStore({
@@ -10,6 +11,7 @@ export const store = configureStore({
     authSlice: authSliceReducer,
     newsSlice: newsSliceReducer,
     eventSlice: eventSliceReducer,
+    gidSlice: gidSliceReducer,
   },
 })
 

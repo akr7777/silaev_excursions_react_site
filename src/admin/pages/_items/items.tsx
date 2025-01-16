@@ -1,5 +1,4 @@
 import { v4 } from "uuid"
-import { Preloader } from "../../../shared/preloader/preloader"
 import { OneNewType } from "../../../store/features/newSlice/types/news-types"
 import { useNavigate } from "react-router"
 import { CustomButton } from "../../../components/my-button/my-button"

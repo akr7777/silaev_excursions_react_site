@@ -1,0 +1,21 @@
+.separate-gid-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+.separate-gid-delete-btn {
+    background-color: red;
+    color: black;
+    margin: 30px 0;
+}
+
+.separate-gid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    button {
+        max-width: 300px;
+    }
+}

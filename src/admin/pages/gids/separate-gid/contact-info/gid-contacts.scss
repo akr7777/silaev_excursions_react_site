@@ -1,0 +1,24 @@
+@use "../../../../../assets/styles/common.scss" as *;
+@use "../../../../../components/text-field/text-field.scss" as *;
+
+.gid-contacts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+}
+
+.gid-contacts-block {
+    display: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.gid-contacts-btn-ok {
+    background-color: green;
+    margin: 0 5px;
+}
+.gid-contacts-btn-close {
+    background-color: red;
+    margin: 0 5px;
+}
