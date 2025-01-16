@@ -25,7 +25,7 @@ export const AdminNewsPage = () => {
                     title={"Новости:"} 
                     items={news} 
                     createBtnTitle={"Создать новость"}
-                    baseLinkUrl={PATHS.admin.news} 
+                    baseLinkUrl={PATHS.news} 
                 />
         }
         </>        

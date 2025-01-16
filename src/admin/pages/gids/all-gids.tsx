@@ -19,8 +19,8 @@ export const GidsPage = () => {
     const gids: GidType[] = useAppSelector(state => state.gidSlice.gids)
     const isLoading: boolean = useAppSelector(state => state.gidSlice.isAllLoading)
 
-    const onNewClick = (id: string) => navigate(PATHS.admin.gids + id)
-    const onCreateNewClick = () => navigate(PATHS.admin.gids + CREATE_NEW_ENTETY)
+    const onNewClick = (id: string) => navigate(PATHS.gids + id)
+    const onCreateNewClick = () => navigate(PATHS.gids + CREATE_NEW_ENTETY)
 
     useEffect(() => {
         dispatch(gidSliceThunks.getAll())

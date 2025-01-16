@@ -25,7 +25,7 @@ export const AdminEventsPage = () => {
                     title={"Мероприятия:"} 
                     items={events} 
                     createBtnTitle={"Создать мероприятие"}
-                    baseLinkUrl={PATHS.admin.events} 
+                    baseLinkUrl={PATHS.events} 
                 />
         }
         </>        

@@ -31,16 +31,16 @@ export const SeparateNewPage = () => {
         const answer: boolean = window.confirm("Удалить новость?")
         if (answer) {
             dispatch(newsSliceThunks.deleteNew({ newId: newId }))
-            navigate(PATHS.admin.news)
+            navigate(PATHS.news)
         }
     }
     const onCreateNewHandler = (data: AddNewThunkReqType) => {
         dispatch(newsSliceThunks.addNew(data))
-        navigate(PATHS.admin.news)
+        navigate(PATHS.news)
     }
     const onEditNewHandler = (data: UpdateNewThunkReqType) => {
         dispatch(newsSliceThunks.updateNew(data))
-        navigate(PATHS.admin.news)
+        navigate(PATHS.news)
     }
 
     return (

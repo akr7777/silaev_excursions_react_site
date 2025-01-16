@@ -11,8 +11,8 @@ export const MainAdminPage = () => {
 
     
     useEffect(() => {
-        if (location.pathname === PATHS.admin.root || location.pathname === PATHS.admin.root + '/') {
-            navigate(PATHS.admin.news)
+        if (location.pathname === PATHS.rootPath || location.pathname === PATHS.rootPath + '/') {
+            navigate(PATHS.news)
         }
     }, [location.pathname])
     

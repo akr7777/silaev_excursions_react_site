@@ -71,7 +71,7 @@ export const SeparateGidPage = () => {
             file,
         }
         dispatch(gidSliceThunks.add(data))
-        navigate(PATHS.admin.gids)
+        navigate(PATHS.gids)
     }
 
     const onEditNewBtnClick = () => {
@@ -84,14 +84,14 @@ export const SeparateGidPage = () => {
                 file,
             }
             dispatch(gidSliceThunks.update(data))
-            navigate(PATHS.admin.gids)
+            navigate(PATHS.gids)
         }
     }
 
     const onDeleteNewClick = () => {
         if (gidId) {
             dispatch(gidSliceThunks.delete({ gidId }))
-            navigate(PATHS.admin.gids)
+            navigate(PATHS.gids)
         }
     }
 

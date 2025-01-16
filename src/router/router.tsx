@@ -15,12 +15,15 @@ import { SeparateGidPage } from "../admin/pages/gids/separate-gid/saparate-gid";
 export const PATHS = {
   rootPath: '/',
   auth: '/auth/',
-  admin: {
-    root: '/admin',
-    events: '/admin/events/',
-    news: '/admin/news/',
-    gids: '/admin/gids/',
-  }
+  // admin: {
+  //   root: '/admin',
+  //   events: '/admin/events/',
+  //   news: '/admin/news/',
+  //   gids: '/admin/gids/',
+  // },
+  events: '/events/',
+  news: '/news/',
+  gids: '/gids/',
 }
 
 export const AppRouter = () => {
@@ -31,31 +34,48 @@ export const AppRouter = () => {
     return (
       <Routes>
         {/* <Route path={PATHS.rootPath} element={<MainAppPage />} /> */}
-        <Route index element={<MainAppPage />} />
+        {/* <Route index element={<MainAppPage />} /> */}
+        <Route index element={<MainAdminPage />} />
+
+        <Route path={PATHS.rootPath} element={
+          <PrivateRoute element={<MainAdminPage />}/>
+        }>
+          <Route path={PATHS.news} element={<AdminNewsPage />} />
+          <Route path={PATHS.news + ":newId"} element={<SeparateNewPage />} />
+
+          <Route path={PATHS.events} element={<AdminEventsPage />} />
+          <Route path={PATHS.events + ":eventId"} element={<SeparateEventPage />} />
+
+          <Route path={PATHS.gids} element={<GidsPage />} />
+          <Route path={PATHS.gids + ":gidId"} element={<SeparateGidPage />} />
+        </Route>
+
+        
+
 
         <Route 
             path={PATHS.auth} 
             element={<AuthPage />} 
           />
 
-        <Route path={PATHS.admin.root} element={
+        {/* <Route path={PATHS.admin.root} element={
           <PrivateRoute element={<MainAdminPage />}/>
-        }>
+        }> */}
 
          
           {/* <Route path={PATHS.admin.news} element={<AdminNews />}>
             <Route path={":newId"} element={<AdminSeparateNew />} />
           </Route> */}
-          <Route path={PATHS.admin.news} element={<AdminNewsPage />} />
+          {/* <Route path={PATHS.admin.news} element={<AdminNewsPage />} />
           <Route path={PATHS.admin.news + ":newId"} element={<SeparateNewPage />} />
 
           <Route path={PATHS.admin.events} element={<AdminEventsPage />} />
           <Route path={PATHS.admin.events + ":eventId"} element={<SeparateEventPage />} />
 
           <Route path={PATHS.admin.gids} element={<GidsPage />} />
-          <Route path={PATHS.admin.gids + ":gidId"} element={<SeparateGidPage />} />
+          <Route path={PATHS.admin.gids + ":gidId"} element={<SeparateGidPage />} /> */}
 
-        </Route>
+        {/* </Route> */}
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

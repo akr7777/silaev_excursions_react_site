@@ -31,16 +31,16 @@ export const SeparateEventPage = () => {
         const answer: boolean = window.confirm("Удалить мероприятие?")
         if (answer) {
             dispatch(eventsSliceThunks.deleteNew({ newId: newId }))
-            navigate(PATHS.admin.events)
+            navigate(PATHS.events)
         }
     }
     const onCreateNewHandler = (data: AddNewThunkReqType) => {
         dispatch(eventsSliceThunks.addNew(data))
-        navigate(PATHS.admin.events)
+        navigate(PATHS.events)
     }
     const onEditNewHandler = (data: UpdateNewThunkReqType) => {
         dispatch(eventsSliceThunks.updateNew(data))
-        navigate(PATHS.admin.events)
+        navigate(PATHS.events)
     }
 
     return (

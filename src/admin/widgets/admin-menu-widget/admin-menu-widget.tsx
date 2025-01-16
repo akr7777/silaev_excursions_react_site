@@ -24,21 +24,21 @@ export const AdminMenuWidget = () => {
             <div className="admin-menu-classes">
 
                 <NavLink 
-                    to={PATHS.admin.news}
+                    to={PATHS.news}
                     className={navLinkStyle}
                 >
                     Новости
                 </NavLink>
 
                 <NavLink 
-                    to={PATHS.admin.events}
+                    to={PATHS.events}
                     className={navLinkStyle}
                 >
                     Мероприятия
                 </NavLink>
 
                 <NavLink 
-                    to={PATHS.admin.gids}
+                    to={PATHS.gids}
                     className={navLinkStyle}
                 >
                     Экскурсоводы

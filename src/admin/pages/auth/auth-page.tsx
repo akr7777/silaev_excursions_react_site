@@ -19,7 +19,7 @@ export const AuthPage = () => {
     const isAuthentificated: boolean = login !== null && login.length > 0
     useEffect(() => {
         if (isAuthentificated) {
-            navigate(PATHS.admin.root)
+            navigate(PATHS.rootPath)
         }
     }, [isAuthentificated])
     
@@ -52,7 +52,7 @@ export const AuthPage = () => {
                 placeholder="Пароль"
                 isSecretText={true}
             />
-            <CustomButton title={"Войти"} onPress={onLoginClick}/>
+            <CustomButton title={"Войти"} onPress={onLoginClick} tabIndex={0} autoFocus={true}/>
         </div>
     )
 }
