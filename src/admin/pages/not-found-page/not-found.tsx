@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router'
-import { PATHS } from '../../router/router'
+import { PATHS } from '../../../router/router'
 
 import './not-found.scss'
 
