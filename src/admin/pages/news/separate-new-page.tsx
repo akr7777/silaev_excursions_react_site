@@ -42,6 +42,13 @@ export const SeparateNewPage = () => {
         dispatch(newsSliceThunks.updateNew(data))
         navigate(PATHS.news)
     }
+    const onImageSaveHandler = (file: File | null) => {
+        if (newId && file) {
+            const formData = new FormData();
+            formData.append("file", file);
+            dispatch(newsSliceThunks.uploadPhoto({id: newId, formData: formData}))
+        }
+    }
 
     return (
         <>
@@ -55,6 +62,7 @@ export const SeparateNewPage = () => {
                     onCreateItemBtnClick={(data: AddNewThunkReqType) => onCreateNewHandler(data)}
                     onEditItemBtnClick={(data: UpdateNewThunkReqType) => onEditNewHandler(data)}
                     onDeleteClick={(id: string) => onDeleteHandler(id)}
+                    onImageSaveFunction={(file: File | null) => onImageSaveHandler(file)}
                 />
         }
         </>

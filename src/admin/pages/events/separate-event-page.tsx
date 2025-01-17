@@ -43,18 +43,27 @@ export const SeparateEventPage = () => {
         navigate(PATHS.events)
     }
 
+    const onImageSaveHandler = (file: File | null) => {
+            if (eventId && file) {
+                const formData = new FormData();
+                formData.append("file", file);
+                dispatch(eventsSliceThunks.uploadPhoto({id: eventId, formData: formData}))
+            }
+        }
+
     return (
         <>
         {
             isOneEventLoading
                 ? <Preloader />
                 : <SeparateItem 
-                    currentItem={currentEvent} 
-                    itemId={eventId}  
-                    setCurrentItem={(newItem: OneNewType | OneEventType | null) => onSetCurrentItem(newItem)} 
-                    onCreateItemBtnClick={(data: AddNewThunkReqType) => onCreateNewHandler(data)}
-                    onEditItemBtnClick={(data: UpdateNewThunkReqType) => onEditNewHandler(data)}
-                    onDeleteClick={(id: string) => onDeleteHandler(id)}
+                        currentItem={currentEvent}
+                        itemId={eventId}
+                        setCurrentItem={(newItem: OneNewType | OneEventType | null) => onSetCurrentItem(newItem)}
+                        onCreateItemBtnClick={(data: AddNewThunkReqType) => onCreateNewHandler(data)}
+                        onEditItemBtnClick={(data: UpdateNewThunkReqType) => onEditNewHandler(data)}
+                        onDeleteClick={(id: string) => onDeleteHandler(id)} 
+                        onImageSaveFunction={(file: File | null) => onImageSaveHandler(file)}
                 />
         }
         </>

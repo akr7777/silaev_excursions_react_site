@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./image-upload.scss";
+import { useAppDispatch } from "../../../store/store";
 
 type UploadProps = {
     file: File | null,
     setFile: (file: File | null) => void
     initialPreview?: string; // URL или base64 изображение
+    onSaveFunctionName: (file: File | null) => void
 };
 
-export const UploadComponent2: React.FC<UploadProps> = ({ file, setFile, initialPreview }) => {
+export const UploadComponent2: React.FC<UploadProps> = ({ file, setFile, initialPreview, onSaveFunctionName }) => {
+  const dispatch = useAppDispatch()
 
   const [preview, setPreview] = useState<string | null>(initialPreview || null);
   const [error, setError] = useState<string | null>(null);
@@ -28,8 +31,14 @@ export const UploadComponent2: React.FC<UploadProps> = ({ file, setFile, initial
       setFile(selectedFile);
       setPreview(URL.createObjectURL(selectedFile)); // Генерируем временную ссылку для нового файла
       setError(null);
+
+      // onSaveFunctionName(file)
     }
   };
+
+  // const onSave = () => {
+  //   onSaveFunctionName(file)
+  // }
 
   // Освобождение ресурсов для превью
   useEffect(() => {

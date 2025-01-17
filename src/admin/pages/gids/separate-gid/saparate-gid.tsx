@@ -81,7 +81,7 @@ export const SeparateGidPage = () => {
                 fullName,
                 description,
                 contactInfo,
-                file,
+                file: file,
             }
             dispatch(gidSliceThunks.update(data))
             navigate(PATHS.gids)
@@ -92,6 +92,14 @@ export const SeparateGidPage = () => {
         if (gidId) {
             dispatch(gidSliceThunks.delete({ gidId }))
             navigate(PATHS.gids)
+        }
+    }
+
+    const onAvatarSave = (file: File | null) => {
+        if (gidId && file) {
+            const formData = new FormData();
+            formData.append("file", file);
+            dispatch(gidSliceThunks.uploadPhoto({id: gidId, formData: formData}))
         }
     }
 
@@ -145,7 +153,12 @@ export const SeparateGidPage = () => {
             <div>
                 <h4>Форма загрузки фотографии</h4>
                 {/* <UploadComponent file={file} setFile={setFile} onUpload={uploadPhotoOnServer} /> */}
-                <UploadComponent2 file={file} setFile={setFile} initialPreview={initialImage} />
+                <UploadComponent2 
+                    file={file} 
+                    setFile={setFile} 
+                    initialPreview={initialImage}
+                    onSaveFunctionName={(file: File | null) => onAvatarSave(file)}
+                />
 
             </div>
 
