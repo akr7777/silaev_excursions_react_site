@@ -16,6 +16,7 @@ import "./separate-gid.scss"
 import { ContactEditor } from "./contact-info/gid-contacts"
 import { BgOutlet } from "../../../../components/bg-outlet/bg-outlet"
 import { decodeContactsFromString } from "./contact-info/gid-cont-functions"
+import { v4 } from "uuid"
 // import { GidContacts } from "./contact-info/gid-contacts"
 
 export const SeparateGidPage = () => {
@@ -121,15 +122,19 @@ export const SeparateGidPage = () => {
             </div>
 
             <div>
-                <div>Контактная информания:</div>
+                <h3>Контактная информания:</h3>
                 {/* <CustomTextArea value={contactInfo} onChange={(newVal: string) => setContactInfo(newVal)} /> */}
                 {/* <GidContacts contacts={contactInfo} onContactsChange={(newVal: string) => setContactInfo(newVal)}/> */}
                 <div className="separate-gid-col">
-                    <label>
-                        {Object.entries(decodeContactsFromString(contactInfo))
-                            .map(([key, value]) => `${key}: ${value}`)
-                            .join(";\n")}
-                    </label>
+                    {Object.entries(decodeContactsFromString(contactInfo))
+                        .map(([key, value]) => (
+                            <div key={v4()}>
+                                {`${key}: ${value}`}
+                            </div>
+                        ))
+                        // .map(el => <div key={v4()}>{el}</div>)
+                    }
+
                     <button onClick={() => setShowC(true)}>Редактирование контактов</button>
                 </div>
                 {/* <label>{contactInfo}</label> */}

@@ -69,8 +69,7 @@ export const ContactEditor: React.FC<ContactEditorProps> = ({ initialData, onSav
         />
       </div>
 
-      <div>
-        {/* <label>Whats'app:</label> */}
+      {/* <div>
         <input 
           placeholder={"Whats'app"} 
           type="text" 
@@ -79,10 +78,9 @@ export const ContactEditor: React.FC<ContactEditorProps> = ({ initialData, onSav
           onChange={handleChange} 
           className="custom-text-field"
         />
-      </div>
+      </div> */}
 
-      <div>
-        {/* <label>Viber:</label> */}
+      {/* <div>
         <input 
           placeholder={"Viber"} 
           type="text" 
@@ -91,7 +89,7 @@ export const ContactEditor: React.FC<ContactEditorProps> = ({ initialData, onSav
           onChange={handleChange} 
           className="custom-text-field"
         />
-      </div>
+      </div> */}
 
       <div>
         {/* <label>ВКонтакте:</label> */}
@@ -105,8 +103,7 @@ export const ContactEditor: React.FC<ContactEditorProps> = ({ initialData, onSav
         />
       </div>
 
-      <div>
-        {/* <label>Facebook:</label> */}
+      {/* <div>
         <input 
           placeholder={"Facebook"} 
           type="text" 
@@ -115,7 +112,7 @@ export const ContactEditor: React.FC<ContactEditorProps> = ({ initialData, onSav
           onChange={handleChange} 
           className="custom-text-field"
         />
-      </div>
+      </div> */}
 
       <div>
         {/* <label>Youtube:</label> */}
@@ -124,6 +121,18 @@ export const ContactEditor: React.FC<ContactEditorProps> = ({ initialData, onSav
           type="text" 
           name={gidContactFields.youtube} 
           value={contact.youtube} 
+          onChange={handleChange} 
+          className="custom-text-field"
+        />
+      </div>
+
+      <div>
+        {/* <label>Youtube:</label> */}
+        <input 
+          placeholder={"Rutube"} 
+          type="text" 
+          name={gidContactFields.rutube} 
+          value={contact.rutube} 
           onChange={handleChange} 
           className="custom-text-field"
         />

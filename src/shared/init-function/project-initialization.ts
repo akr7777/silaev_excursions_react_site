@@ -20,6 +20,9 @@ export const projectInitialization = () => {
     if (accessToken) {
         const data: AdminType = recieveUserFromToken(accessToken)
         store.dispatch(authSliceActions.setAdmin(data))
+    } else {
+        localStorage.removeItem(LOCAL_STORAGE_ACCESS_TOKEN)
+        store.dispatch(authSliceActions.setAdmin({ login: null }))
     }
 
     // Инициализация проекта завершена

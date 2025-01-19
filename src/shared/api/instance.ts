@@ -1,6 +1,8 @@
 import axios, { AxiosError } from 'axios'
 import { LOCAL_STORAGE_ACCESS_TOKEN } from '../consts'
 import { PATHS } from '../../router/router'
+import { store } from '../../store/store'
+import { authSliceActions } from '../../store/features/auth/model/auth-slice'
 
 export const instance = axios.create({
   baseURL: import.meta.env.VITE_SERVER_URL as string,
@@ -33,10 +35,13 @@ instance.interceptors.response.use(
     return config
   },
   async (error: AxiosError<ResponseErrorType>) => {
-    if (error.response?.data.message === 'Refresh token has expired') {
-    //   store.dispatch(appActions.setLoading(false))
-
-      return
+    
+    if (error.response?.status === 401) {
+      
+      localStorage.removeItem(LOCAL_STORAGE_ACCESS_TOKEN)
+      store.dispatch(authSliceActions.setAdmin({ login: null }))
+      
+      // return
     } else if (error.response?.status === 403) {
       try {
         // const refresh_token = localStorage.getItem(LOCAL_STORAGE_REFRESH_TOKEN)
