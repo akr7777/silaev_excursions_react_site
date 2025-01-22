@@ -167,16 +167,21 @@ export const SeparateGidPage = () => {
 
             </div>
 
-            {gidId && gidId !== CREATE_NEW_ENTETY
-                ? <CustomButton title="Редактировать данные" onPress={onEditNewBtnClick} />
-                : <CustomButton title="Создать нового экскурсовода" onPress={onAddNewBtnClick} />
-            }
-            
+            <div className="separate-item-btn">
+
+                {gidId && gidId !== CREATE_NEW_ENTETY
+                    ? <CustomButton title="Редактировать данные" onPress={onEditNewBtnClick} />
+                    : <CustomButton title="Создать нового экскурсовода" onPress={onAddNewBtnClick} />
+                }
+                
 
 
-            {gidId && 
-                <CustomButton title="Удалить экскурсовода" onPress={onDeleteNewClick} class="separate-gid-delete-btn" />
-            }
+                {gidId && 
+                    <CustomButton title="Удалить экскурсовода" onPress={onDeleteNewClick} class="separate-gid-delete-btn" />
+                }
+
+            </div>
+
         </div>
     )
 }

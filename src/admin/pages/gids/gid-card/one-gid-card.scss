@@ -28,3 +28,9 @@
 .one-gid-container:hover {
     background-color: grey;
 }
+
+.one-gid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

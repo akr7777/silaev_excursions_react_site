@@ -42,10 +42,7 @@ export type GidContactType = {
     phone?: string,
     email?: string
     telegram?: string
-    // whatsapp?: string
-    // viber?: string
     vk?: string
-    // facebook?: string
     youtube?: string
     rutube?: string
 }

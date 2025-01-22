@@ -51,11 +51,16 @@ export const SeparateItem = ( {
 
     useEffect(() => {
         if (initialImage) {
-          fetch(initialImage, { mode: 'no-cors' })
-            .then((response) => response.blob())
+          fetch(initialImage)
+            .then((response) => {
+                return response.blob()
+            })
             .then((blob) => {
-              const existingFile = new File([blob], "existing-image" + dayjs().format() + ".jpg", { type: blob.type });
-              setFile(existingFile);
+                if (blob.size > 0) {
+                    const existingFile = new File([blob], "existing-image" + dayjs().format() + ".jpg", { type: blob.type });
+                    setFile(existingFile);
+                }
+              
             })
             .catch((error) => console.error("Ошибка при загрузке initialPreview:", error));
         }
@@ -144,16 +149,18 @@ export const SeparateItem = ( {
 
             </div>
 
-            {itemId && itemId !== CREATE_NEW_ENTETY
-                ? <CustomButton title="Редактировать" onPress={onEditNewBtnClick} />
-                : <CustomButton title="Создать" onPress={onAddNewBtnClick} />
-            }
-            
+            <div className="separate-item-btn">
+                {itemId && itemId !== CREATE_NEW_ENTETY
+                    ? <CustomButton title="Редактировать" onPress={onEditNewBtnClick} />
+                    : <CustomButton title="Создать" onPress={onAddNewBtnClick} />
+                }
+                
 
 
-            {itemId && 
-                <CustomButton title="Удалить" onPress={onDeleteNewClick} class="separate-item-delete-btn" />
-            }
+                {itemId && 
+                    <CustomButton title="Удалить" onPress={onDeleteNewClick} class="separate-item-delete-btn" />
+                }
+            </div>
         </div>
     )
 }

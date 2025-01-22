@@ -1,4 +1,5 @@
 @use "../../../components/text-field/text-field.scss" as *;
+@use "../../../assets/styles/common.scss" as *;
 
 .separate-item-wrapper {
     display: flex;
@@ -16,3 +17,5 @@
     width: fit-content;
     max-width: 200px;
 }
+
+

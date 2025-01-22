@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./image-upload.scss";
-import { useAppDispatch } from "../../../store/store";
+// import { useAppDispatch } from "../../../store/store";
 
 type UploadProps = {
     file: File | null,
@@ -10,7 +10,7 @@ type UploadProps = {
 };
 
 export const UploadComponent2: React.FC<UploadProps> = ({ file, setFile, initialPreview, onSaveFunctionName }) => {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
 
   const [preview, setPreview] = useState<string | null>(initialPreview || null);
   const [error, setError] = useState<string | null>(null);
