@@ -51,20 +51,23 @@ export const SeparateItem = ( {
 
     useEffect(() => {
         if (initialImage) {
+          const url = new URL(initialImage);
+          const filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
+
           fetch(initialImage)
             .then((response) => {
                 return response.blob()
             })
             .then((blob) => {
                 if (blob.size > 0) {
-                    const existingFile = new File([blob], "existing-image" + dayjs().format() + ".jpg", { type: blob.type });
+                    const existingFile = new File([blob], filename, { type: blob.type });
                     setFile(existingFile);
                 }
               
             })
             .catch((error) => console.error("Ошибка при загрузке initialPreview:", error));
         }
-      }, [initialImage]);
+    }, [initialImage]);
 
 
     const onAddNewBtnClick = () => {
